@@ -6,6 +6,14 @@
 		<script type="text/javascript" src="/app/scripts/app.js"></script>
 	</head>
 	<body data-ng-controller="GameOfLifeController">
-		{{hello}}
+		Width<input type="number" data-ng-model="width"/>
+		Height<input type="number" data-ng-model="height"/>
+		<button type="button" data-ng-click="startStop()">{{state}}</button>
+		<button type="button" data-ng-click="step()">Step</button>
+		<table>
+			<tr data-ng-repeat="column in board track by $index">
+				<td data-ng-repeat="cell in column track by $index">a</td>
+			</tr>
+		</table>
 	</body>
 </html>
