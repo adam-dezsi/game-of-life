@@ -1,6 +1,3 @@
-target/
-!.mvn/wrapper/maven-wrapper.jar
-
 ### IntelliJ IDEA ###
 .idea
 *.iws
@@ -8,9 +5,14 @@ target/
 *.ipr
 *.orig
 *.log
-bin/
+target/
 
 ### Eclipse ###
 .classpath
 .project
 .settings
+bin/
+
+### WEB UI ###
+node_modules/
+bower_components/
