@@ -1,1 +1,18 @@
-asd
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.orig
+*.log
+target/
+
+### Eclipse ###
+.classpath
+.project
+.settings
+bin/
+
+### WEB UI ###
+node_modules/
+bower_components/

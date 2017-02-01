@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="GameOfLife">
+	<head>
+		<title>Game of Life</title>
+		<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="/app/scripts/app.js"></script>
+		<style type="text/css">
+			th, td {
+			   border: 1px solid black;
+			   width: 10px;
+			   height: 10px;
+			}
+		    .red {
+		    	background-color: red;
+		    }
+		    .white {
+		    	background-color: white;
+		    }
+		</style>
+	</head>
+	<body data-ng-controller="GameOfLifeController">
+		Width<input type="number" data-ng-model="width"/>
+		Height<input type="number" data-ng-model="height"/>
+		<button type="button" data-ng-click="startStop()">
+			<span data-ng-show="state == 'stopped'">Start</span>
+			<span data-ng-show="state == 'started'">Stop</span>
+		</button>
+		<button type="button" data-ng-click="step()">Step</button>
+		<table>
+			<tr data-ng-repeat="column in board track by $index">
+				<td data-ng-class="{red : cell==true, white : cell==false}" data-ng-repeat="cell in column track by $index" data-ng-click="flip($parent.$index, $index)"></td>
+			</tr>
+		</table>
+	</body>
+</html>
