@@ -25,6 +25,10 @@ angular.module("GameOfLife", [])
                 return board;
             }
 
+            $scope.flip = function(x, y){
+                $scope.board[x][y] = !$scope.board[x][y];
+            };
+
             $scope.$watch('width', function() {
                 if ($scope.width < 1){
                     $scope.width = 1;
