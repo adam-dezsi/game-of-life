@@ -1,7 +1,10 @@
 var express = require('express');
-var serveStatic = require('serve-static');
 
 var app = express();
 
-app.use(serveStatic('public/ftp', {'index': ['default.html', 'default.htm']}));
+app.use(express.static(__dirname + '/app/views'));
+app.get('/', function(req, res){
+    res.sendfile('app.html', { root: __dirname + "/app/views" } );
+});
+
 app.listen(8082);
