@@ -1,1 +1,16 @@
-asd
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.orig
+*.log
+bin/
+
+### Eclipse ###
+.classpath
+.project
+.settings
