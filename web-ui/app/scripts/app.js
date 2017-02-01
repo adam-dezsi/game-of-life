@@ -13,10 +13,10 @@ angular.module("GameOfLife", [])
             
             $scope.startStop = function(){
                 if ($scope.state == "stopped"){
-                    $scope.state == "started";
+                    $scope.state = "started";
                     start();
                 } else if ($scope.state == "started"){
-                    $scope.state == "stopped";
+                    $scope.state = "stopped";
                     stop();
                 }
             };
