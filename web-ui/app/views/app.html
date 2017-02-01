@@ -1,8 +1,11 @@
-<html>
+<!DOCTYPE html>
+<html data-ng-app="GameOfLife">
 	<head>
 		<title>Game of Life</title>
+		<script type="text/javascript" src="/bower_components/angular/angular.js"></script>
+		<script type="text/javascript" src="/app/scripts/app.js"></script>
 	</head>
-	<body>
-		Helló
+	<body data-ng-controller="GameOfLifeController">
+		{{hello}}
 	</body>
 </html>
