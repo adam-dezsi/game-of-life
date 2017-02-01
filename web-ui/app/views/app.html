@@ -21,7 +21,10 @@
 	<body data-ng-controller="GameOfLifeController">
 		Width<input type="number" data-ng-model="width"/>
 		Height<input type="number" data-ng-model="height"/>
-		<button type="button" data-ng-click="startStop()">{{state}}</button>
+		<button type="button" data-ng-click="startStop()">
+			<span data-ng-show="state == 'stopped'">Start</span>
+			<span data-ng-show="state == 'started'">Stop</span>
+		</button>
 		<button type="button" data-ng-click="step()">Step</button>
 		<table>
 			<tr data-ng-repeat="column in board track by $index">

@@ -1,17 +1,45 @@
 angular.module("GameOfLife", [])
-    .constant("REST_API", "/api")
-    .controller('GameOfLifeController', ['$scope', '$http',
-        function ($scope, $http) {
+    .constant("REST_API", "http://localhost:8081/game")
+    .controller('GameOfLifeController', ['$scope', '$http', 'REST_API',
+        function ($scope, $http, REST_API) {
 
             $scope.state = "stopped";
             $scope.width = 5;
             $scope.height = 5;
 
             $scope.board = getDefaultBoard($scope.width, $scope.height);
+
+            timer = null;
             
             $scope.startStop = function(){
-                console.log($scope.width + " " + $scope.height);
+                if ($scope.state == "stopped"){
+                    $scope.state == "started";
+                    start();
+                } else if ($scope.state == "started"){
+                    $scope.state == "stopped";
+                    stop();
+                }
             };
+
+            function start(){
+                timer = setInterval($scope.step, 3000);
+            }
+
+            function stop(){
+                clearInterval(timer);
+            }
+
+            $scope.step = function(){
+                $http.post(REST_API+'/step', {board: $scope.board})
+                .then(
+                    function onSuccess(response){
+                        $scope.board = response.data.board;
+                    },
+                    function onError(){
+                        //TODO
+                    }
+                );
+            }
 
             function getDefaultBoard(width, height){
                 var board = [];
