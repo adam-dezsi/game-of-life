@@ -8,6 +8,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class EngineService{
 
+	public StepResponseDto step(final StepRequestDto stepRequest){
+		return new StepResponseDto(step(stepRequest.getBoard()));
+	}
+
 	/**
 	 * 0;0 is at TOP LEFT corner
 	 *
@@ -18,11 +22,8 @@ public class EngineService{
 	 * V
 	 *
 	 * Y
-	 *
-	 * @param board
-	 * @return
 	 */
-	public boolean[][] step(boolean[][] board){
+	public boolean[][] step(final boolean[][] board){
 		if (board == null || board.length == 0 || board[0] == null){
 			throw new IllegalArgumentException();
 		}
